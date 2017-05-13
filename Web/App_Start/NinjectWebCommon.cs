@@ -1,3 +1,4 @@
+using Core.Logging;
 using DataAccess;
 using DataAccess.Repositories;
 using Services.Abstracts;
@@ -75,6 +76,9 @@ namespace Web.App_Start
                 .InRequestScope();
             kernel.Bind<ICountryService>()
                 .To<CountryService>()
+                .InRequestScope();
+            kernel.Bind<ILoggingService>()
+                .To<LoggingService>()
                 .InRequestScope();
         }        
     }
